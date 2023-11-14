@@ -1,3 +1,6 @@
 dataset/*
 dataset/character.metadata.tsv
+additional_dataset/*
 .DS_Store
+.wikidata_keys
+*.pyc
