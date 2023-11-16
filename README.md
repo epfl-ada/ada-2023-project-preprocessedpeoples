@@ -21,6 +21,13 @@ Treating each year as a sample, we can look at the average of the proportions in
 
 # Research Questions:
 _(A list of research questions you would like to address during the project.)_
+**Adam**: Character complexity by defining some metric, for example number of actions a character takes in the movie plot summary. Problems are some plot descriptions are only a sentence. Looking at the type of actions with CoreNLP, extract the sentences associated by the characters, extract adjectives.
+
+Somehow analyse the changes in characters and assign a score of character complexity to each character -> analyse the complexity across female and male characters. 
+
+Analyse the data across the time line. 
+
+
 
 # Proposed additional datasets (if any):
 _(List the additional dataset(s) you want to use (if any), and some ideas on how you expect to get, manage, process, and enrich it/them. Show us that you’ve read the docs and some examples, and that you have a clear idea on what to expect. Discuss data size and format if relevant. It is your responsibility to check that what you propose is feasible.)_
