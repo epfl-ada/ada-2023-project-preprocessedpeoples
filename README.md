@@ -40,11 +40,6 @@ Questions:
 2) In the Oscars, how does gender representation among nominees and winners vary over time?
 3) What are the long-term trends in gender representation in movies?
 
-
-Adam: Character complexity by defining some metric, for example number of actions a character takes in the movie plot summary. Problems are some plot descriptions are only a sentence. Looking at the type of actions with CoreNLP, extract the sentences associated by the characters, extract adjectives.
-
-Somehow analyse the changes in characters and assign a score of character complexity to each character -> analyse the complexity across female and male characters.
-
 # Proposed additional datasets (if any):
 We have already used CMU Movie Dataset with Stanford CoreNLP-processed summaries. In addition to that, we plan to use three additional datasets to enrich our research results.
 
