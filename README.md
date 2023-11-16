@@ -26,11 +26,11 @@ _(A list of research questions you would like to address during the project.)_
 Somehow analyse the changes in characters and assign a score of character complexity to each character -> analyse the complexity across female and male characters. 
 
 Analyse the data across the time line. 
-
-
+**Naz**: Analyse and reveal the difference between the types of the caracters that are portrayed by female and male characters by performing a sentiment analysis based on the descriptions retrieved from the tv tropes website. What are the character types that are portrayed by uniquely female actresses and male actors? How are the character descriptions sentiments differing with respect to the gender? Is it the same for unisex characters that can be portrayed by both genders?
 
 # Proposed additional datasets (if any):
 _(List the additional dataset(s) you want to use (if any), and some ideas on how you expect to get, manage, process, and enrich it/them. Show us that you’ve read the docs and some examples, and that you have a clear idea on what to expect. Discuss data size and format if relevant. It is your responsibility to check that what you propose is feasible.)_
+Character description dataset: A dataset manually created by matching the existing 73 tv tropes character types and the retrieved tv tropes character definitions from tv tropes website.
 # Methods
 
 # Proposed timeline
