@@ -15,8 +15,6 @@ During the analysis, we utilized a variety of chart types to improve the depth o
 </p>
 
 
-You can find all of the charts in the output file. 
-
 # Research Questions:
 
 The project includes research questions from two domains : Stationary Analysis & Time Series Analysis
