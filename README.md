@@ -75,7 +75,9 @@ We have already used CMU Movie Dataset with Stanford CoreNLP-processed summaries
 # Methods
 
 Step 1: Data scraping, pre-processing and dataset construction
+
 Step 2: Create and visualize
+
 Step 3: Determine the character importance based on the CoreNLP summaries
 
 Character complexity by defining some metric, for example number of actions a character takes in the movie plot summary. Problems are some plot descriptions are only a sentence. Looking at the type of actions with CoreNLP, extract the sentences associated by the characters, extract adjectives.
