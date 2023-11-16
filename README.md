@@ -15,18 +15,6 @@ During the analysis, we utilized a variety of chart types to improve the depth o
 </p>
 
 
-# Introduction
-Films play an important role in perpetuating ideas and stereotypes, and gender is no exception. Traditionally, female characters have been portrayed in the roles of mothers, wife, girlfriend, or sex object motifs while male actors have dominated the leading roles. With the rise of feminism in the 1960s, 1990s, and more recently in the 2010's especially with the rise of movements such as the MeToo movement, we must ask whether improvements have been made in the balance of gender representation in the Film Industry. We attempt to examine the disparity between the representation of male and female characters using the CMU Film Synopsis Corpus. In addition, we will investigate the male-female distribution not only for the actors but also for the film crew in order to reveal the balance in gender representation in the Movie Industry.
-
-During the analysis, we utilized a variety of chart types to improve the depth of interpretation. These are the same samples from our initial analysis:
-
-<p align="middle">
-  <img src="output/image/avg_age.png" width="200" />
-  <img src="output/image/avg_percentage_temporal.png" width="200" /> 
-  <img src="output/image/boxplot_mean_proportions.png" width="200" />
-</p>
-
-
 # Research Questions:
 
 The project includes research questions from two domains : Stationary Analysis & Time Series Analysis
