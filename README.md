@@ -43,11 +43,15 @@ Questions:
 # Proposed additional datasets (if any):
 We have already used CMU Movie Dataset with Stanford CoreNLP-processed summaries. In addition to that, we plan to use three additional datasets to enrich our research results.
 
-1) Data collected by us: We collected additional data by following the below steps:
-    * Dataset creation using Freebase IDs and Wikidata API to extract IMDb IDs.
-    * Utilization of the TMDB API for acquiring gender information of cast and crew members.
-
+1) Data collected by us: 
+    i) Crew and cast dataset:
+    We created an additional dataset by using Freebase IDs and Wikidata API to extract IMDb IDs.
+    TMDB API is used for acquiring gender information of cast and crew members.
     The results are stored in movie_with_gender_info.csv file.
+
+    ii)Character description dataset: 
+    A dataset manually created by matching the existing 73 tv tropes character types and the retrieved tv tropes character definitions from tv tropes website.
+    Resulting dataset is stored in unique_character_types.csv file.
 
 2) Oscar award dataset: 
 
