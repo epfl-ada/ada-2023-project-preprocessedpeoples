@@ -1,9 +1,8 @@
 import requests
-from multiprocessing import Pool,Process, Queue, log_to_stderr
+from multiprocessing import Process
 import numpy as np
 import pandas as pd
 import time 
-from imdb import Cinemagoer
 
 import shutil
 import os
