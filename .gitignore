@@ -5,7 +5,6 @@ additional_dataset/*
 .wikidata_keys
 *.pyc
 
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -168,3 +167,6 @@ cython_debug/
 #.idea/
 
 data/* 
+*.pkl
+.env
+character/*
