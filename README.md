@@ -73,22 +73,40 @@ We have already used CMU Movie Dataset with Stanford CoreNLP-processed summaries
 
 Step 1: Data scraping, pre-processing and dataset construction
 
-Step 2: Create and visualize
+Step 2: Create and visualize the gender related data 
 
-Step 3: Determine the character importance based on the CoreNLP summaries
+Step 3: Perform sentiment analysis to the character types/descriptions
 
-Character complexity by defining some metric, for example number of actions a character takes in the movie plot summary. Problems are some plot descriptions are only a sentence. Looking at the type of actions with CoreNLP, extract the sentences associated by the characters, extract adjectives.
+Step 4: Perform sentiment analysis to the plots and reveal the change in time
 
-Somehow analyse the changes in characters and assign a score of character complexity to each character -> analyse the complexity across female and male characters.
+Step 5: Perform hypothesis testing (tentative) based on Oscar nominees and Bechdel test results
+
+Step 6: Extracting character **BERKE - combine with  Determine the character importance based on the CoreNLP summaries
+Character complexity by defining some metric, for example number of actions a character takes in the movie plot summary. Problems are some plot descriptions are only a sentence. Looking at the type of actions with CoreNLP, extract the sentences associated by the characters, extract adjectives. Analyse the complexity across female and male characters.
 
 Step 7: Provide detailed analysis for each research question
+
 Step 8: Create data story
+
+Step 9: Creating the web page
 # Proposed timeline
+Until the Deadline Milestone 2 - 17.11.2023: Step 1-4
+Week 1 (24.11.2023): Step 4 
+Week 2 (01.12.2023): Step 5
+Week 3 (08.12.2023): Step 6
+Week 4 (15.12.2023): Step 7
+Week 5 (22.12.2023): Step 8-9
+
+Deadline of Milestone 3: 22.12.2023
 
 # Organization within the team:
-_(A list of internal milestones up until project Milestone P3.)_
+Zeynep: Step 2, Step 5
+Adam: Step 6
+Berke: Step 1, Step 6
+Nazlıcan: Step 3, Step 4
+Kenta: Step 2
 
-
+Step 7 step 8, step 9 ???
 # References
 
 [1] [Learning Latent Personas of Film Characters](http://www.cs.cmu.edu/~dbamman/pubs/pdf/bamman+oconnor+smith.acl13.pdf)
