@@ -4,3 +4,5 @@ dataset/character.metadata.tsv
 .wikidata_keys
 *.pyc
 *.pkl
+.env
+character/*
