@@ -108,7 +108,8 @@ Step 9: Creating the web page
 18/12/2023 - 22/12/2023
 - continue work on the website.
 - finalise the notebook and repository to be submitted.
-#Organization Within the Team
+
+# Organization Within the Team
 Zeynep: Step 2, Step 5 
 Adam: Step 6 
 Berke: Step 1, Step 6 
