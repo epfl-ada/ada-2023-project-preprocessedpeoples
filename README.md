@@ -71,20 +71,26 @@ Step 1: Data scraping, pre-processing and dataset construction
 
 Step 2: Create and visualize the gender related data 
 
-Step 3: Perform sentiment analysis to the character types/descriptions
+Step 3: Gender based sentiment analysis
+Subtasks:
+- Perform sentiment analysis to the character types/descriptions 
+- Perform sentiment analysis to the plots and reveal the change in time
 
-Step 4: Perform sentiment analysis to the plots and reveal the change in time
+Step 4: Perform hypothesis testing based on Oscar nominees and Bechdel test results
 
-Step 5: Perform hypothesis testing (tentative) based on Oscar nominees and Bechdel test results
+Step 5: Character analysis over plot
+Subtasks: 
+- Extracting character vector representations from plot, utilizing unsupervised techniques, word embeddings, sentence transformers combined with CoreNLP data.
+- Visualizing similaries or distances between characters in our representation, through dimensionality reduction techniques (t-SNE, UMAP)
+- Inpecting common word occurences associated with characters of different gender. 
+- Determine the character importance based on the CoreNLP summaries. 
+- Character complexity by defining some metric, for example number of actions a character takes in the movie plot summary. - Problems are some plot descriptions are only a sentence. Looking at the type of actions with CoreNLP, extract the sentences associated by the characters, extract adjectives. Analyse the complexity across female and male characters.
 
-Step 6: Extracting character **BERKE - combine with  Determine the character importance based on the CoreNLP summaries
-Character complexity by defining some metric, for example number of actions a character takes in the movie plot summary. Problems are some plot descriptions are only a sentence. Looking at the type of actions with CoreNLP, extract the sentences associated by the characters, extract adjectives. Analyse the complexity across female and male characters.
+Step 6: Provide detailed analysis for each research question
 
-Step 7: Provide detailed analysis for each research question
+Step 7: Create data story
 
-Step 8: Create data story
-
-Step 9: Creating the web page
+Step 8: Creating the web page
 
 # Proposed timeline
 20/11/2023 - 26/11/2023
@@ -92,13 +98,13 @@ Step 9: Creating the web page
 - Create a word embedding which is associated to each character. Create plots visualising frequency of words used to describe male and female actors, and other exploratory plots. 
 
 27/11/2023 - 3/12/2023
-- Step 6: Perform clusterings on the word embeddings. Try several algorithms and use visualisations such as UMAP or tSNE plots. Initial study of the clusters by gender. 
+- Step 5: Perform clusterings on the word embeddings. Try several algorithms and use visualisations such as UMAP or tSNE plots. Initial study of the clusters by gender. 
 - define a character complexity metric based on verbs used to describe a character on the CoreNLP outputs. 
-- Step 4: Analysis of sentiment analysis results as a temporal analysis. 
-- Step 5: Perform the hypothesis testing to reveal the gender reprasantation differences between the oscar nominees or winners
+- Step 3: Inspection of sentiment analysis findings as a temporal analysis. 
+- Step 4: Perform the hypothesis testing to reveal the gender representation differences between the oscar nominees or winners
 
 4/11/2023 - 10/12/2023
-- step 6 continued: Perform more in depth studies of the clusters, correlating to character attributes, movie attributes and as a temporal analysis. 
+- Step 5 continued: Perform more in depth studies of the clusters, correlating to character attributes, movie attributes and as a temporal analysis. 
 
 11/12/2023 - 17/12/2023
 - begin creation of the website. 
@@ -110,17 +116,17 @@ Step 9: Creating the web page
 - finalise the notebook and repository to be submitted.
 
 # Organization Within the Team
-Zeynep: Step 2, Step 5 
+Zeynep: Step 2, Step 4 
 
-Adam: Step 6 
+Adam: Step 5 
 
-Berke: Step 1, Step 6 
+Berke: Step 1, Step 5 
 
-Nazlıcan: Step 3, Step 4 
+Nazlıcan: Step 3
 
 Kenta: Step 2
 
-Step 7 step 8, step 9: will be performed by each group member in collaboration
+Step 6 step 7, step 8: will be performed by each group member in collaboration
 
 # References
 
