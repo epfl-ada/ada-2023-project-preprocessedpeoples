@@ -71,10 +71,10 @@ Step 1: Data scraping, pre-processing and dataset construction
 
 Step 2: Create and visualize the gender related data 
 
-Step 3: Gender based sentiment analysis
+Step 3: Sentiment analysis of the characters portrayed based on genders
 Subtasks:
-- Perform sentiment analysis to the character types/descriptions 
-- Perform sentiment analysis to the plots and reveal the change in time
+- Perform sentiment analysis to the description of character types that are portrayed
+- Perform sentiment analysis to the verbs and adjectives that are associated with the characters coming from the CoreNLP summaries to investigate further and reveal whether the sentiments based on gender changes in time
 
 Step 4: Perform hypothesis testing based on Oscar nominees and Bechdel test results
 
