@@ -111,10 +111,15 @@ Step 9: Creating the web page
 
 # Organization Within the Team
 Zeynep: Step 2, Step 5 
+
 Adam: Step 6 
+
 Berke: Step 1, Step 6 
+
 Nazlıcan: Step 3, Step 4 
+
 Kenta: Step 2
+
 Step 7 step 8, step 9: will be performed by each group member in collaboration
 
 # References
