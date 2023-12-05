@@ -6,6 +6,7 @@ import xmltodict
 from tqdm import tqdm
 import argparse
 import copy
+import multiprocessing as mp
 
 
 
@@ -262,6 +263,10 @@ def process_file(file, directory):
     with open(f"{directory}/characters/{movie_id}.json", "w") as fp:
         json.dump(characters, fp)
 
+def process_file_wrapper(args):
+    file, directory = args
+    return process_file(file, directory)
+
 def main(args=None):
     parser = argparse.ArgumentParser()
     parser.add_argument("--directory", "-d", type=str, default="../dataset")
@@ -272,10 +277,17 @@ def main(args=None):
         os.makedirs(directory + "/characters")
 
     # go through each file in the directory
-    for file in tqdm(os.listdir(f"{directory}/corenlp_plot_summaries/")):
-        process_file(file, directory)
+    files = os.listdir(f"{directory}/corenlp_plot_summaries/")
+    file_directory_pairs = [(file, directory) for file in files]
 
+    pool = mp.Pool(mp.cpu_count())
 
+    # tqdm can be integrated with imap for progress tracking
+    for _ in tqdm(pool.imap_unordered(process_file_wrapper, file_directory_pairs), total=len(files)):
+        pass
+
+    pool.close()
+    pool.join()
 
 if __name__ == "__main__":
     main()
