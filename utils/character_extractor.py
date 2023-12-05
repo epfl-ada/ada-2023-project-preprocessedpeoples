@@ -4,6 +4,9 @@ import xml.etree.ElementTree as ET
 import gzip
 import xmltodict
 from tqdm import tqdm
+import argparse
+import copy
+
 
 
 def extract_corenlp_xml(filename):
@@ -14,8 +17,9 @@ def extract_corenlp_xml(filename):
     return data_dict
 
 
-def get_character_names(file):
+def get_characters(file):
     characters = {}  # Dictionary to hold character information
+
     for sentence in file["root"]["document"]["sentences"]["sentence"]:
         if not isinstance(sentence, dict) or sentence.get("tokens") is None:
             continue
@@ -38,15 +42,15 @@ def get_character_names(file):
 isValidIndex = lambda l, i: -len(l) <= i < len(l)
 
 
-def get_character_mentions(file):
+def get_character_mentions(file, characters):
+    mentions = copy.deepcopy(characters)
     # clone characters
-    characters = get_character_names(file)
     if (
         file.get("root") is None
         or file["root"].get("document") is None
         or file["root"]["document"].get("coreference") is None
     ):
-        return characters
+        return mentions
     for coreference in file["root"]["document"]["coreference"]["coreference"]:
         # find token
         if not isinstance(coreference, dict) or coreference.get("mention") is None:
@@ -77,20 +81,20 @@ def get_character_mentions(file):
                     break
                 # check if mention is a character
                 token = sentence["tokens"]["token"][int(mention["head"]) - 1]["word"]
-                if token not in characters:
+                if token not in mentions:
                     break
 
-            if not isinstance(characters, dict) or not isinstance(
-                characters[token], dict
+            if not isinstance(mentions, dict) or not isinstance(
+                mentions[token], dict
             ):
                 break
 
-            if characters[token].get("mentions") is None:
-                characters[token]["mentions"] = [mention]
+            if mentions[token].get("mentions") is None:
+                mentions[token]["mentions"] = [mention]
             else:
-                characters[token]["mentions"].append(mention)
+                mentions[token]["mentions"].append(mention)
 
-    return characters
+    return mentions
 
 
 def get_mention_inverse_map(mentions):
@@ -187,14 +191,17 @@ def get_dependencies(
     return dependencies
 
 
-def parse_dependencies(dependencies):
-    for character in dependencies:
+def add_words(charcters, dependencies):
+    for character in charcters:
         actions_taken = []
         actions_received = []
         possessions = []
         descriptions = []
 
+        if dependencies.get(character) is None:
+            continue
         for type in dependencies[character]:
+
             for role in dependencies[character][type]:
                 for other in dependencies[character][type][role]:
                     if (
@@ -220,40 +227,54 @@ def parse_dependencies(dependencies):
                         and role == "governor"
                     ):
                         descriptions.append(other)
-        dependencies[character] = {
-            "actions_taken": actions_taken,
-            "actions_received": actions_received,
-            "possessions": possessions,
-            "descriptions": descriptions,
-        }
-    return dependencies
+
+        charcters[character]["actions_taken"] = actions_taken
+        charcters[character]["actions_received"] = actions_received
+        charcters[character]["possessions"] = possessions
+        charcters[character]["descriptions"] = descriptions
 
 
-def main():
+def add_number_of_mentions(characters, mentions):
+    for character in mentions:
+        if mentions[character].get('mentions') is None:
+            characters[character]['occurrences'] = 1
+        else:
+            characters[character]['occurrences'] = len(mentions[character]['mentions']) + 1
+
+
+def process_file(file, directory):
+    if not file.endswith(".xml.gz"):
+        return
+
+    movie_id = file.split(".")[0]
+
+    parsed_file = extract_corenlp_xml(f"{directory}/corenlp_plot_summaries/{file}")
+    characters = get_characters(parsed_file)
+    mentions = get_character_mentions(parsed_file, characters)
+
+    add_number_of_mentions(characters, mentions)
+
+    mention_inverse_map = get_mention_inverse_map(mentions)
+    dependencies = get_dependencies(parsed_file, mentions, mention_inverse_map)
+
+    add_words(characters, dependencies)
+
+    with open(f"{directory}/characters/{movie_id}.json", "w") as fp:
+        json.dump(characters, fp)
+
+def main(args=None):
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--directory", "-d", type=str, default="../dataset")
     # Load and parse the XML file
-    directory = "../dataset/"
+    directory = parser.parse_args(args).directory
 
-    if not os.path.exists(directory + "characters"):
-        os.makedirs(directory + "characters")
+    if not os.path.exists(directory + "/characters"):
+        os.makedirs(directory + "/characters")
 
     # go through each file in the directory
-    for file in tqdm(os.listdir(f"{directory}corenlp_plot_summaries/")):
-        # file ends with .xml.gz
-        if file.endswith(".xml.gz"):
-            # get the movie id
-            movie_id = file.split(".")[0]
-        else:
-            continue
+    for file in tqdm(os.listdir(f"{directory}/corenlp_plot_summaries/")):
+        process_file(file, directory)
 
-        parsed_file = extract_corenlp_xml(directory + file)
-        mentions = get_character_mentions(parsed_file)
-
-        mention_inverse_map = get_mention_inverse_map(mentions)
-        dependencies = get_dependencies(parsed_file, mentions, mention_inverse_map)
-        dependencies = parse_dependencies(dependencies)
-
-        with open(f"{directory}characters/{movie_id}.json", "w") as fp:
-            json.dump(dependencies, fp)
 
 
 if __name__ == "__main__":
