@@ -9,7 +9,6 @@ import copy
 import multiprocessing as mp
 
 
-
 def extract_corenlp_xml(filename):
     tree = ET.parse(gzip.open(filename))
     # xml to json
@@ -85,9 +84,7 @@ def get_character_mentions(file, characters):
                 if token not in mentions:
                     break
 
-            if not isinstance(mentions, dict) or not isinstance(
-                mentions[token], dict
-            ):
+            if not isinstance(mentions, dict) or not isinstance(mentions[token], dict):
                 break
 
             if mentions[token].get("mentions") is None:
@@ -199,35 +196,33 @@ def add_words(charcters, dependencies):
         possessions = []
         descriptions = []
 
-        if dependencies.get(character) is None:
-            continue
-        for type in dependencies[character]:
-
-            for role in dependencies[character][type]:
-                for other in dependencies[character][type][role]:
-                    if (
-                        type == "agent"
-                        and role == "dependant"
-                        or type == "nsubj"
-                        and role == "dependant"
-                    ):
-                        actions_taken.append(other)
-                    if (
-                        type == "dobj"
-                        and role == "dependant"
-                        or type == "nsubjpass"
-                        and role == "dependant"
-                    ):
-                        actions_received.append(other)
-                    if type == "poss" and role == "dependant":
-                        possessions.append(other)
-                    if (
-                        type == "amod"
-                        and role == "governor"
-                        or type == "nn"
-                        and role == "governor"
-                    ):
-                        descriptions.append(other)
+        if dependencies.get(character) is not None:
+            for type in dependencies[character]:
+                for role in dependencies[character][type]:
+                    for other in dependencies[character][type][role]:
+                        if (
+                            type == "agent"
+                            and role == "dependant"
+                            or type == "nsubj"
+                            and role == "dependant"
+                        ):
+                            actions_taken.append(other)
+                        if (
+                            type == "dobj"
+                            and role == "dependant"
+                            or type == "nsubjpass"
+                            and role == "dependant"
+                        ):
+                            actions_received.append(other)
+                        if type == "poss" and role == "dependant":
+                            possessions.append(other)
+                        if (
+                            type == "amod"
+                            and role == "governor"
+                            or type == "nn"
+                            and role == "governor"
+                        ):
+                            descriptions.append(other)
 
         charcters[character]["actions_taken"] = actions_taken
         charcters[character]["actions_received"] = actions_received
@@ -237,10 +232,12 @@ def add_words(charcters, dependencies):
 
 def add_number_of_mentions(characters, mentions):
     for character in mentions:
-        if mentions[character].get('mentions') is None:
-            characters[character]['occurrences'] = 1
+        if mentions[character].get("mentions") is None:
+            characters[character]["occurrences"] = 1
         else:
-            characters[character]['occurrences'] = len(mentions[character]['mentions']) + 1
+            characters[character]["occurrences"] = (
+                len(mentions[character]["mentions"]) + 1
+            )
 
 
 def process_file(file, directory):
@@ -263,9 +260,11 @@ def process_file(file, directory):
     with open(f"{directory}/characters/{movie_id}.json", "w") as fp:
         json.dump(characters, fp)
 
+
 def process_file_wrapper(args):
     file, directory = args
     return process_file(file, directory)
+
 
 def main(args=None):
     parser = argparse.ArgumentParser()
@@ -283,11 +282,15 @@ def main(args=None):
     pool = mp.Pool(mp.cpu_count())
 
     # tqdm can be integrated with imap for progress tracking
-    for _ in tqdm(pool.imap_unordered(process_file_wrapper, file_directory_pairs), total=len(files)):
+    for _ in tqdm(
+        pool.imap_unordered(process_file_wrapper, file_directory_pairs),
+        total=len(files),
+    ):
         pass
 
     pool.close()
     pool.join()
+
 
 if __name__ == "__main__":
     main()
