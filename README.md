@@ -13,28 +13,15 @@ During the analysis, we utilized a variety of chart types to improve the depth o
 </p>
 
 # Research Questions:
-The project includes research questions from two domains : Stationary Analysis & Time Series Analysis
+The project includes research questions as follows:
 
-Stationary Analysis
+1) How does gender impact actors' career opportunities and success, particularly in terms of the types of roles and reward opportunities offered?
+2) Is there a relation between gender and character complexity based on character relation network and plot summaries in the movies?
+3) Does semantic analysis of role types reveal any distinct differences in the assignment of roles based on gender?
+4) Does the gender composition of cast and crew causally influence the critical success of films, evaluated by IMDb ratings?
+5) Are there specific movie genres that demonstrate a minimal or no gender gap in terms of character representation?
+Does the balance of male and female characters impact a film's critical success?
 
-Questions:
-
-1) How does the gender composition of cast and crew correlate with a film's success, measured in terms of box office revenue and award recognitions?
-2) Are there specific movie genres that demonstrate a minimal or no gender gap in terms of character representation?
-Does the balance of male and female characters impact a film's financial success?
-3) What is the gender representation trend in the most popular movie genres?
-4) Do films that pass the Bechdel test (explained in the proposed additional datasets part) perform differently at the box office compared to those that don't pass?
-5) How does gender representation in award-winning films compare to those that did not win major awards?
-6) How does gender representation in the film industry vary across different countries?
-7) What are the character types that are portrayed by uniquely female actresses and male actors? How are the character descriptions sentiments differing with respect to the gender? Is it the same for unisex characters that can be portrayed by both genders?
-
-Time Series Analysis
-
-Questions:
-
-1) How has the gender balance among cast and crew evolved over the years in the film industry?
-2) In the Oscars, how does gender representation among nominees and winners vary over time?
-3) What are the long-term trends in gender representation in movies?
 
 # Proposed additional datasets (if any):
 We have already used CMU Movie Dataset with Stanford CoreNLP-processed summaries. In addition to that, we plan to use three additional datasets to enrich our research results.
@@ -49,21 +36,15 @@ We have already used CMU Movie Dataset with Stanford CoreNLP-processed summaries
     A dataset manually created by matching the existing 73 tv tropes character types and the retrieved tv tropes character definitions from tv tropes website.
     Resulting dataset is stored in unique_character_types.csv file.
 
+    iii)imdb scores dataset:
+    In order to have a success measure, we extracted imdb scores based on the imdb ids that we extracted by using FreebaseIDs and Wikidata API.
+
 2) Oscar award dataset: 
 
     To analyse Oscar awards data by gender, focusing on nominee and winner gender proportions, revealing industry gender biases and progress towards equality in film awards, we plan to use the following dataset:
 
     The data is taken from https://www.kaggle.com/datasets/unanimad/the-oscar-award/data?select=the_oscar_award.csv.
 
-3) Bechdel test : A measure to assess the representation of women in films
-
-    The test involves three criteria:
-
-    1) Two Women: The movie must have at least two women in it.
-    2) Who Talk to Each Other: These women must talk to each other at some point.
-    3) About Something Besides a Man: Their conversation must be about something other than a man.
-
-    The data is taken from https://www.kaggle.com/datasets/alisonyao/movie-bechdel-test-scores.
 
 # Methods
 
