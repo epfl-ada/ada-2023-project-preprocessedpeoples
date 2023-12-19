@@ -170,3 +170,4 @@ data/*
 *.pkl
 .env
 character/*
+models/crosslingual-coreference/minilm/model.tar.gz
