@@ -67,7 +67,9 @@ Step 4: Analysis about the Impact of Gender Composition in Cast and Crew on IMDb
 - Performing ANOVA (Analysis of Variance) to test if there are statistically significant differences and Tukey HSD test
 
 Step 5: Creating Network for the Analysis between Actor Collaborations
-- NAZLICAN WILL WRITE THIS PART!
+- Analysis of the network properties of collaborations between the top 1000 most popular actors 
+- Analysis of the network properties of collaborations between the top 100 most popular female actors 
+- Analysis of the network properties of collaborations between the top 100 most male actors 
 
 Step 6: Character analysis over plot
 - BERKE AND ADAM
@@ -95,9 +97,7 @@ Step 7: Create data story & the web page
 | Zeynep    | - Analysis with hypothesis testing for Reward Opportunities based on Gender<br>- Analysis about the Impact of Gender Composition in Cast and Crew on IMDb Ratings<br>- Initial Creation of the Project website and ReadMe<br>- Obtaining Plotly charts to enhance the visual appeal of the website's charts |
 | Adam      | - Plot summaries data extraction from original CoreNLP results    |
 | Berke     | - Creation of the verb/noun/adjective extraction pipeline for each character in plot summaries<br>- Analysis based on the results<br>- Collecting crew and cast details by utilizing wikidata ids and freebase ids |
-| Nazlıcan  | - Sentiment analysis of the characters portrayed based on genders<br>- Creating Network for the Analysis between Actor Collaborations <br>- Organization of ReadMe file|
-
-Group note: Everyone has been involved in the preparation of data story and website.
+| Nazlıcan  | - Character stereotypes and sentiment analysis of the tvtropes character type descriptions portrayed based on genders, manually creating the tvtropes character descriptions dataset <br>- Creating Network for the Analysis between Actor Collaborations <br> - Writing the datastory for the website <br>- Organization of ReadMe file|
 
 Kenta: Kenta is involved until milestone 2, however after that he has not contributed to the project due to personal reasons. 
 
