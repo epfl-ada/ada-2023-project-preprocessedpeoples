@@ -62,6 +62,9 @@ Step 3: Sentiment analysis of the characters portrayed based on genders
 - Perform sentiment analysis to the description of character types that are portrayed and their definitions.
 
 Step 4: Analysis about the Impact of Gender Composition in Cast and Crew on IMDb Ratings
+- Changes in time based on cast and crew distributions
+- Average Crew & Cast Gender Distribution
+- Performing ANOVA (Analysis of Variance) to test if there are statistically significant differences and Tukey HSD test
 
 Step 5: Creating Network for the Analysis between Actor Collaborations
 - NAZLICAN WILL WRITE THIS PART!
