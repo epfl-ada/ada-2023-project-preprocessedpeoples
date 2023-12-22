@@ -72,7 +72,7 @@ Step 5: Creating Network for the Analysis between Actor Collaborations
 - Analysis of the network properties of collaborations between the top 100 most male actors 
 
 Step 6: Character analysis over plot
-- BERKE AND ADAM
+We utilized CoreNLP plot summaries to retrieve relevant words for each character. Then we clustered these words with spacy library ```en_core_web_sm``` embeddings and K-Nearest Neighbor. After clustering, we encoded the actions of each character using 0-1 flags for each type of action they take. After that, we used a decision tree to determine which action types are most important when determining a characters gender, plotting the tree itself and its feature importances.
 
 Step 7: Create data story & the web page
 
